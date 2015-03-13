@@ -2,6 +2,6 @@ public class HelloWorld
 {
 	public static void main(String[] args)
 	{
-		System.out.print("HelloWorld by java program");
+		System.out.println("Hello World by java program");
 	}
 }
