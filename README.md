@@ -1,3 +1,7 @@
 # java from python
 
-Script python to call java program through the **subprocess** module.
+**use**
+
+    >>> run = PyJavaRun('DemoJava.jar')
+    >>> run.output() # Return program data
+    >>> run.errors() # Error list if any
