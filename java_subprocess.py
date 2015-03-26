@@ -6,7 +6,6 @@ class PyJavaRun(object):
 	PyJavaRun is a class that run a java program through subprocess class
 	"""
 	_exe = 'java'
-	_options = {}
 	
 	def __init__(self, name=None, params=[]):
 		if not type(name) == str:
