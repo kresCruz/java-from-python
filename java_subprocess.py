@@ -32,3 +32,7 @@ class PyJavaRun(object):
 	@property
 	def output(self):
 		return self._output
+
+run = PyJavaRun('DemoJava.jar', params=['{"ok": 1}'])
+print(run.output)
+print(run.errors)
