@@ -1,7 +1,7 @@
 from subprocess import Popen, STDOUT, PIPE
 
 
-class PJavaRun(object):
+class PyJavaRun(object):
 	"""
 	PyJavaRun is a class that run a java program through subprocess class
 	"""
