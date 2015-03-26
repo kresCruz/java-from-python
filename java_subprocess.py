@@ -9,6 +9,18 @@ class PyJavaRun(object):
 	_options = {}
 	
 	def __init__(self, name=None, params=[]):
+		if not type(name) == str:
+			raise TypeError(
+				'The `name` must be a str. Got %s.' %
+				type(params).__name__
+			)
+
+		if not isinstance(params, list):
+			raise TypeError(
+				'The `params` must be a list. Got %s.' %
+				type(params).__name__
+			)
+
 		self._name = name
 		self._options = ['-jar']
 		self._params = params
