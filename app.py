@@ -23,3 +23,11 @@ class PyJavaRun(object):
 		process = Popen(args, stdout=stdout, stderr=stderr)
 		self._output, self._errors = process.communicate()
 		process.kill()
+
+	@property
+	def errors(self):
+		return self._errors
+
+	@property
+	def output(self):
+		return self._output
