@@ -1,17 +1,25 @@
 from subprocess import Popen, STDOUT, PIPE
-import json
 
-def java_call(java_file):
+
+class PJavaRun(object):
 	"""
-	Call java program through the subprocess module,
-	return 'output' and 'errors' in a dict
+	PyJavaRun is a class that run a java program through subprocess class
 	"""
-	process = Popen("java "+java_file, stdout=PIPE, stderr=STDOUT)
-	output, errors = process.communicate()
-	process.kill()
+	_exe = 'java'
+	_options = {}
 	
-	data = {'output': output, 'errors': errors}
-	return data
+	def __init__(self, name=None):
+		self._name = name
+		self._options = ['-jar']
+		self.run()
 
-response = java_call("HelloWorld")
-print(response)
+	def command_args(self):
+		options = ''.join(self._options)
+		command = [self._exe, options, self._name]
+		return command
+
+	def run(self, stdout=PIPE, stderr=STDOUT):
+		args = self.command_args()
+		process = Popen(args, stdout=stdout, stderr=stderr)
+		self._output, self._errors = process.communicate()
+		process.kill()
