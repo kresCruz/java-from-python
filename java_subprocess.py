@@ -34,7 +34,12 @@ class PyJavaRun(object):
 		args = self.command_args()
 		process = Popen(args, stdout=stdout, stderr=stderr)
 		self._output, self._errors = process.communicate()
+		self._returncode = process.returncode
 		process.kill()
+
+	@property
+	def returncode(self):
+		return self._returncode
 
 	@property
 	def errors(self):
